@@ -10,4 +10,9 @@ public class PostgresDatabase implements Database{
     public void getHostname() {
 
     }
+
+    @Override
+    public DatabaseType getType() {
+        return null;
+    }
 }
