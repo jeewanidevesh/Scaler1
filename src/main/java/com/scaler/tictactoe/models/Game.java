@@ -1,5 +1,6 @@
 package main.java.com.scaler.tictactoe.models;
 
+import main.java.com.scaler.tictactoe.exceptions.InvalidGameConstructionParametersException;
 import main.java.com.scaler.tictactoe.startegies.gamewinningstrategy.GameWinningStrategy;
 
 import java.util.List;
@@ -16,7 +17,6 @@ public class Game {
     private Game(){
 
     }
-
 
     public Board getBoard() {
         return board;
@@ -72,5 +72,43 @@ public class Game {
 
     public void setWinner(Player winner) {
         this.winner = winner;
+    }
+
+    public class Builder{
+        private int dimension;
+        private List<Player>players;
+
+
+        public Builder setDimension(int dimension) {
+            this.dimension = dimension;
+            return this;
+        }
+
+
+        public Builder setPlayers(List<Player> players) {
+            this.players = players;
+            return this;
+        }
+
+        private boolean valid() throws InvalidGameConstructionParametersException {
+            if(this.dimension<3){
+                throw new InvalidGameConstructionParametersException("Dimension of game can't be 1");
+            }
+
+            if(this.players.size()!=this.dimension-1){
+                throw  new InvalidGameConstructionParametersException("Number of players must be Dimension - 1");
+            }
+            // validate no 2 people with same char
+
+            //validate all 1 bot
+            return true;
+        }
+
+        public Game build() throws InvalidGameConstructionParametersException {
+            if(!valid()){
+                throw new InvalidGameConstructionParametersException("Something is wrong");
+            }
+            return new Game();
+        }
     }
 }
