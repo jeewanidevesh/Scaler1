@@ -1,4 +1,4 @@
-package main.java.com.scaler.tictactoe.startegies.botplayingstrategy;
+package main.java.com.scaler.tictactoe.strategies.botplayingstrategy;
 
 import main.java.com.scaler.tictactoe.models.Board;
 import main.java.com.scaler.tictactoe.models.Move;

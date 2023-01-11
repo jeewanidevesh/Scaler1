@@ -1,4 +1,4 @@
-package main.java.com.scaler.tictactoe.startegies.gamewinningstrategy;
+package main.java.com.scaler.tictactoe.strategies.gamewinningstrategy;
 
 import main.java.com.scaler.tictactoe.models.Board;
 import main.java.com.scaler.tictactoe.models.Cell;
