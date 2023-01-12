@@ -1,7 +1,7 @@
 package main.java.com.scaler.tictactoe.models;
 
 import main.java.com.scaler.tictactoe.exceptions.InvalidGameConstructionParametersException;
-import main.java.com.scaler.tictactoe.startegies.gamewinningstrategy.GameWinningStrategy;
+import main.java.com.scaler.tictactoe.strategies.gamewinningstrategy.GameWinningStrategy;
 
 import java.util.List;
 
@@ -17,6 +17,12 @@ public class Game {
     private Game(){
 
     }
+
+    public void undo(){}
+
+    public  void executeNextMove(){}
+
+    public void makeNextMove(){}
 
     public Board getBoard() {
         return board;

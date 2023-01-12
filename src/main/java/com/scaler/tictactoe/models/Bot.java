@@ -1,7 +1,7 @@
 package main.java.com.scaler.tictactoe.models;
 
 import main.java.com.scaler.tictactoe.factories.BotPlayingStrategyFactory;
-import main.java.com.scaler.tictactoe.startegies.botplayingstrategy.BotPlayingStrategy;
+import main.java.com.scaler.tictactoe.strategies.botplayingstrategy.BotPlayingStrategy;
 
 public class Bot extends Player{
 
