@@ -22,10 +22,12 @@ public class OrderOneGameWinningStrategy implements GameWinningStrategy {
     }
 
     public boolean isCellOnTopLeftDiag(int row, int col) {
+
         return row == col;
     }
 
     public boolean isCellOnTopRightDiag(int row, int col, int dimension) {
+
         return row + col == dimension - 1;
     }
 
@@ -40,29 +42,20 @@ public class OrderOneGameWinningStrategy implements GameWinningStrategy {
             rowSymbolCounts.get(row).put(symbol, 0);
         }
 
-        rowSymbolCounts.get(row).put(
-                symbol,
-                rowSymbolCounts.get(row).get(symbol) + 1
-        );
+        rowSymbolCounts.get(row).put(symbol,rowSymbolCounts.get(row).get(symbol) + 1);
 
         if (!colSymbolCounts.get(col).containsKey(symbol)) {
             colSymbolCounts.get(col).put(symbol, 0);
         }
 
-        colSymbolCounts.get(col).put(
-                symbol,
-                colSymbolCounts.get(col).get(symbol) + 1
-        );
+        colSymbolCounts.get(col).put(symbol, colSymbolCounts.get(col).get(symbol) + 1);
 
         if (isCellOnTopLeftDiag(row, col)) {
             if (!topLeftDiagSymbolCounts.containsKey(symbol)) {
                 topLeftDiagSymbolCounts.put(symbol, 0);
             }
 
-            topLeftDiagSymbolCounts.put(
-                    symbol,
-                    topLeftDiagSymbolCounts.get(symbol) + 1
-            );
+            topLeftDiagSymbolCounts.put(symbol, topLeftDiagSymbolCounts.get(symbol) + 1);
         }
 
         if (isCellOnTopRightDiag(row, col, board.getBoard().size())) {
@@ -70,16 +63,11 @@ public class OrderOneGameWinningStrategy implements GameWinningStrategy {
                 topRightDiagSymbolCounts.put(symbol, 0);
             }
 
-            topRightDiagSymbolCounts.put(
-                    symbol,
-                    topRightDiagSymbolCounts.get(symbol) + 1
+            topRightDiagSymbolCounts.put(symbol, topRightDiagSymbolCounts.get(symbol) + 1
             );
         }
 
-        if (
-                rowSymbolCounts.get(row).get(symbol) == dimension ||
-                        colSymbolCounts.get(col).get(symbol) == dimension
-        ) {
+        if (rowSymbolCounts.get(row).get(symbol) == dimension || colSymbolCounts.get(col).get(symbol) == dimension) {
             return true;
         }
 

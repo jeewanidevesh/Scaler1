@@ -53,8 +53,7 @@ public class Game {
         int row = move.getCell().getRow();
         int col = move.getCell().getCol();
 
-        System.out.println("Move happened at: " +
-                row + ", " + col + ".");
+        System.out.println("Move happened at: " + row + ", " + col + ".");
 
         board.getBoard().get(row).get(col).setCellState(CellState.FILLED);
         board.getBoard().get(row).get(col).setPlayer(players.get(nextPlayerIndex));
@@ -66,9 +65,7 @@ public class Game {
 
         this.moves.add(finalMove);
 
-        if (gameWinningStrategy.checkWinner(
-                board, players.get(nextPlayerIndex), finalMove.getCell()
-        )) {
+        if (gameWinningStrategy.checkWinner(board, players.get(nextPlayerIndex), finalMove.getCell())){
             gameStatus = GameStatus.ENDED;
             winner = players.get(nextPlayerIndex);
         }

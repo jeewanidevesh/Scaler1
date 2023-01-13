@@ -5,5 +5,5 @@ import main.java.com.scaler.tictactoe.models.Cell;
 import main.java.com.scaler.tictactoe.models.Player;
 
 public interface GameWinningStrategy {
-    boolean checkWinner(Board board, Player lastMovepLayer, Cell moveCell);
+    boolean checkWinner(Board board, Player lastMovePLayer, Cell moveCell);
 }
