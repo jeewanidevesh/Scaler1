@@ -1,8 +1,7 @@
 package main.java.com.scaler.tictactoe.models;
 
 public class Move {
-
-    private  Player player;
+    private Player player;
     private Cell cell;
 
     public Move(Player player, Cell cell) {

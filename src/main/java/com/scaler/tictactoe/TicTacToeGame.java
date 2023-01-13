@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class TicTacToeGame {
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
         // It will take input: dimension, players
         Scanner scanner = new Scanner(System.in);
         GameController gameController = new GameController();
@@ -24,11 +24,11 @@ public class TicTacToeGame {
 
         int toIterate = dimension - 1;
 
-        if (isBotString.equals("y")){
+        if (isBotString.equals("y")) {
             toIterate = dimension - 2;
         }
 
-        for(int i = 0; i < toIterate; i++){
+        for (int i = 0; i < toIterate; ++i) {
             System.out.println("What is the name of player " + i);
             String playerName = scanner.next();
 
@@ -48,12 +48,13 @@ public class TicTacToeGame {
             players.add(new Bot(playerName, playerSymbol.charAt(0), BotDifficultyLevel.EASY));
         }
 
-        Game game = gameController.createGame(dimension, players);
+        Game game = gameController.createGame(
+                dimension, players
+        );
 
-        while(gameController.getGameStatus(game).equals(GameStatus.IN_PROGRESS)){
-            System.out.println("This is the current game");
+        while (gameController.getGameStatus(game).equals(GameStatus.IN_PROGRESS)) {
+            System.out.println("This is the current board:");
 
-            //Print the board
             gameController.displayBoard(game);
 
             System.out.println("Does anyone want to undo? y/n");
@@ -65,7 +66,11 @@ public class TicTacToeGame {
             } else {
                 gameController.executeNextMove(game);
             }
+        }
 
+        System.out.println("Game has ended. Result was: ");
+        if (!game.getGameStatus().equals(GameStatus.DRAW)) {
+            System.out.println("Winner is: ." + gameController.getWinner(game).getName());
         }
     }
 }
